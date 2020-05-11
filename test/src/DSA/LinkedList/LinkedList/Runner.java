@@ -9,8 +9,8 @@ package DSA.LinkedList.LinkedList;
 public class Runner {
     public static void main(String[] args) {
         
-//       DListCall();
-//       ListCall();
+       DListCall();
+       ListCall();
        CircularLL();
         
     }
