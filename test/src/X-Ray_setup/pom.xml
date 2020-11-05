@@ -1,0 +1,44 @@
+<aws-xray-recorder.version>2.4.0</aws-xray-recorder.version>
+<dependencys>
+<dependency>
+    <groupId>com.amazonaws</groupId>
+    <artifactId>aws-xray-recorder-sdk-core</artifactId>
+    <version>${aws-xray-recorder.version}</version>
+</dependency>
+<dependency>
+    <groupId>com.amazonaws</groupId>
+    <artifactId>aws-xray-recorder-sdk-aws-sdk</artifactId>
+</dependency>
+<dependency>
+    <groupId>com.amazonaws</groupId>
+    <artifactId>aws-xray-recorder-sdk-aws-sdk-instrumentor</artifactId>
+    <version>${aws-xray-recorder.version}</version>
+</dependency>
+<dependency>
+    <groupId>com.amazonaws</groupId>
+    <artifactId>aws-xray-recorder-sdk-metrics</artifactId>
+    <version>${aws-xray-recorder.version}</version>
+</dependency>
+</dependencys>
+
+
+<filter>
+<filter-name>AWSXRayServletFilter</filter-name>
+<filter-class>com.amazonaws.xray.javax.servlet.AWSXRayServletFilter</filter-class>
+<init-param>
+    <param-name>fixedName</param-name>
+    <param-value>iRakshaParent</param-value>
+</init-param>
+</filter>
+<filter-mapping>
+<filter-name>AWSXRayServletFilter</filter-name>
+<url-pattern>*</url-pattern>
+</filter-mapping>
+<filter>
+<filter-name>AWSXRAYAddingAnnotation</filter-name>
+<filter-class>com.iraksha.aws.config.XRAYAnnotationFilter</filter-class>
+</filter>
+<filter-mapping>
+<filter-name>AWSXRAYAddingAnnotation</filter-name>
+<url-pattern>*</url-pattern>
+</filter-mapping>
